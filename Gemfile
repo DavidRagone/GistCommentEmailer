@@ -14,12 +14,14 @@ group :development, :test do
   gem 'guard-spork'
   gem 'spork'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'

@@ -1,0 +1,17 @@
+<div class='user-info'>
+  <%= image_tag @user.gravatar %>
+  <h2><%= @user.name %></h2>
+</div>
+<%= form_for @user, format: :json, method: :put,
+  remote: true, html: { class: 'form-horizontal' } do |u| %>
+  <div class='control-group'>
+    <%= label :email, 'Update Email Address', class: 'control-label' %>
+    <div class='controls'>
+      <%= u.text_field :email %>
+      <%= u.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+<hr>
+<h3>Gists</h3>
+<%= render @gists %>
