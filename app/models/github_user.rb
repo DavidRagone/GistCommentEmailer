@@ -15,7 +15,7 @@
 #
 
 class GithubUser < ActiveRecord::Base
-  validates_presence_of :uid, :oauth_token
+  validates_presence_of :uid, :oauth_token, :email
   has_many :gists
 
   before_save :create_remember_token

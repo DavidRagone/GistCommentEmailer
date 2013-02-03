@@ -16,6 +16,7 @@ group :development, :test do
   gem 'spork'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'rb-fsevent'
 end
 
 group :assets do

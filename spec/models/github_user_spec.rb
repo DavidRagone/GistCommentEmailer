@@ -19,6 +19,7 @@ require 'spec_helper'
 describe GithubUser do
   describe "validations" do
     it { should validate_presence_of :uid }
+    it { should validate_presence_of :email }
     it { should validate_presence_of :oauth_token }
   end
 

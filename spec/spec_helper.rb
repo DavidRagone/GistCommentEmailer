@@ -2,7 +2,6 @@ require 'simplecov'
 SimpleCov.start 'rails'
 require 'rubygems'
 require 'spork'
-require 'capybara/rspec'
 #uncomment the following line to use spork with the debugger
 ##require 'spork/ext/ruby-debug'
 #
@@ -11,6 +10,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  require 'capybara/rspec'
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -33,6 +33,20 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
   end
+
+  Capybara.default_host = 'http://example.org'
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:github, Hashie::Mash.new(
+      uid: "12345",
+      credentials: Hashie::Mash.new(token: "abc123"),
+      info: Hashie::Mash.new(
+        name: "Mister Bob",
+        email: '',
+        image: "http://placekitten.com/200/300"
+      )
+    )
+  )
 
   Spork.each_run do
     # This code will be run each time you run your specs.

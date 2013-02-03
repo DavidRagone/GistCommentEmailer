@@ -1,0 +1,39 @@
+<div class="jumbotron">
+  <h2>Honestly, why doesn't Github email you when someone comments on your gists?</h2>
+  <p class="lead">
+    Email notifications work with regular old repos, for commits and pulls.
+    It seems strange that this functionality has not been implemented. While
+    some people make little use of gists, other use them extensively. However,
+    without the most basic community feature of a notification, they're little 
+    more than a dumping ground for text. Let's change that.
+  </p>
+  <p>
+    Feel free to use this service. 
+    <%= link_to 'Contribute to the code on Github, add features,
+    report bugs, make pull requests.', 
+    'https://github.com/DavidRagone/GistCommentEmailer' %>
+  </p>
+  <br>
+  <% if signed_in? %>
+    <h3>Thanks for signing up.</h3>
+    <%= link_to 'Update your email address and view your gists', 
+      edit_github_user_path(current_user), class: 'btn btn-success' %>
+  <% else %>
+    <a class="btn btn-large btn-success" href="/auth/github">
+      Sign up via Github</a>
+  <% end %>
+</div>
+<div>
+  <h3>Tell Github you want this.</h3>
+  <h4>Tweet at them</h4>
+  <p>
+    <a target="blank" href="https://twitter.com/intent/tweet?text=" \
+      "@github%20&related=github&url=https://github.com/blog/624-gist" \
+      "-comments">@github</a>
+  </p>
+
+  <h4>Email them</h4>
+  <p><a href="mailto:support@github.com">support@github.com</a></p>
+
+  <hr>
+</div>
