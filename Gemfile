@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'pg'
 gem 'omniauth-github'
+gem 'github_api'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -2,21 +2,24 @@
 #
 # Table name: github_users
 #
-#  id             :integer          not null, primary key
-#  uid            :string(255)
-#  email          :string(255)
-#  oauth_token    :string(255)
-#  remember_token :string(255)
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  name           :string(255)
-#  gravatar       :string(255)
+#  id                    :integer          not null, primary key
+#  uid                   :string(255)
+#  email                 :string(255)
+#  oauth_token           :string(255)
+#  remember_token        :string(255)
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  name                  :string(255)
+#  gravatar              :string(255)
+#  include_private_gists :boolean
 #
 
 class GithubUser < ActiveRecord::Base
   validates_presence_of :uid, :oauth_token
+  has_many :gists
 
   before_save :create_remember_token
+  attr_accessible :email
 
   def self.from_oauth(auth)
     where(uid: auth.uid.to_s).first_or_initialize.tap do |user|

@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+    flash[:alert] = "Signed out of Gist Comment Emailer (note " \
+      "you remained signed into Github due to oauth)"
     redirect_to root_url
   end
 

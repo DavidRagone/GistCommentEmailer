@@ -1,0 +1,19 @@
+$(document).ready(function() {
+  switch(window.location.pathname) {
+    case "/":
+      $("li").removeClass("active");
+      $("li#home").addClass("active");
+      break;
+    case "/about":
+      $("li").removeClass("active");
+      $("li#about").addClass("active");
+      break;
+    case "/contact":
+      $("li").removeClass("active");
+      $("li#contact").addClass("active");
+      break;
+    default:
+      $("li").removeClass("active");
+      $("li#profile").addClass("active");
+  }
+});
