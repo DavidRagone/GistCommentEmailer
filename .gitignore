@@ -16,3 +16,4 @@
 /config/env_vars.rb
 /coverage
 todo.md
+*.swp
