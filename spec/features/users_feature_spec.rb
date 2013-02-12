@@ -47,5 +47,29 @@ feature 'Signing in/out' do
         page.should have_link 'Update your email address and view your gists'
       end
     end
+
+    scenario 'deactivating account', js: true do
+      visit "/auth/github"
+      uncheck "github_user_active"
+      click_button 'Save'
+      current_path.should =~ /github_users\/\d+\/edit/
+      visit current_path
+      page.should have_unchecked_field "github_user_active"
+    end
+
+    #scenario 'not wanting GCE to see private gists', js: true do
+    #  visit "/auth/github"
+    #  uncheck "github_user_include_private_gists"
+    #  click_button 'Save'
+    #  current_path.should =~ /github_users\/\d+\/edit/
+    #  visit current_path
+    #  page.should have_unchecked_field "github_user_include_private_gists"
+    #end
+
+    scenario 'signing out' do
+      visit "/auth/github"
+      click_link 'Sign out'
+      page.should have_content 'Signed out of Gist Comment Emailer (note you remained signed into Github due to oauth)'
+    end
   end
 end

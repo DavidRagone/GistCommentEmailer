@@ -5,9 +5,19 @@
 <%= form_for @user, format: :json, method: :put,
   remote: true, html: { class: 'form-horizontal' } do |u| %>
   <div class='control-group'>
-    <%= label :email, 'Update Email Address', class: 'control-label' %>
+    <%= label :email, 'Update email address', class: 'control-label' %>
     <div class='controls'>
       <%= u.text_field :email %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= label :active, 'Active', class: 'control-label' %>
+    <div class='controls'>
+      <%= u.check_box :active %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='controls'>
       <%= u.submit 'Save', class: 'btn btn-primary' %>
     </div>
   </div>

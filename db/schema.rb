@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202223648) do
+ActiveRecord::Schema.define(:version => 20130211045855) do
 
   create_table "gists", :force => true do |t|
     t.string   "html_url"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130202223648) do
     t.datetime "updated_at",        :null => false
     t.integer  "github_id"
     t.integer  "github_user_id"
+    t.integer  "new_comments"
   end
 
   add_index "gists", ["comments"], :name => "index_gists_on_comments"
@@ -36,11 +37,13 @@ ActiveRecord::Schema.define(:version => 20130202223648) do
     t.string   "email"
     t.string   "oauth_token"
     t.string   "remember_token"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "name"
     t.string   "gravatar"
-    t.boolean  "include_private_gists"
+    t.boolean  "include_private_gists", :default => true
+    t.boolean  "active",                :default => true
+    t.boolean  "has_new_comments",      :default => false
   end
 
   add_index "github_users", ["oauth_token"], :name => "index_github_users_on_oauth_token"

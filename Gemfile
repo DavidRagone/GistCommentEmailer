@@ -14,9 +14,10 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'spork'
-  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
   gem 'rb-fsevent'
+  gem 'awesome_print'
 end
 
 group :assets do

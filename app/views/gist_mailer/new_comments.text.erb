@@ -1,0 +1,7 @@
+You have received new comments on the following gists:
+
+<% @gists.each do |gist| %>
+  <%= gist.new_comments %> new comments on <%= link_to gist.description, gist.html_url %>
+<% end %>
+
+If you would like to stop receiving these emails, please <%= link_to 'log in to Gist Comment Emailer', root_path %> and uncheck the "active" link next to your account.

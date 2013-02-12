@@ -4,6 +4,7 @@ class GithubUsersController < ApplicationController
   def edit
     @user = current_user
     @gists = current_user.gists
+    @github = Github.new
   end
 
   def update
@@ -17,7 +18,6 @@ class GithubUsersController < ApplicationController
 
 private
   def redirect_unless_correct_user
-    redirect_to root_path unless signed_in? && current_user == GithubUser
-      .find_by_id(params[:id])
+    redirect_to root_path unless signed_in? && current_user == GithubUser.find_by_id(params[:id])
   end
 end
