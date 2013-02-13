@@ -1,7 +1,12 @@
 You have received new comments on the following gists:
-
+<br>
+<ul>
 <% @gists.each do |gist| %>
-  <%= gist.new_comments %> new comments on <%= link_to gist.description, gist.html_url %>
+  <li>
+    <%= gist.new_comments %> new comments on <%= link_to gist.description, gist.html_url %>
+  </li>
 <% end %>
-
+</ul>
+<br>
+<hr>
 If you would like to stop receiving these emails, please <%= link_to 'log in to Gist Comment Emailer', "https://gistcommentemailer.herokuapp.com" %> and uncheck the "active" link next to your account.
