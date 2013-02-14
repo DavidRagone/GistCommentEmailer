@@ -18,6 +18,12 @@ namespace :task do
     end
   end
 
-  task fetch_and_email: [:fetch, :email] do
+  desc "Reset records"
+  task reset: :environment do
+    GithubUser.update_all has_new_comments: false
+    Gist.update_all new_comments: 0
+  end
+
+  task fetch_and_email: [:reset, :fetch, :email] do
   end
 end
