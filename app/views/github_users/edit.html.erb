@@ -28,13 +28,14 @@
   <h5>It looks like we don't have any information on your gists yet</h5>
   <p>
   Thanks for signing up! Gist Comment Emailer runs an automated task every night 
-  (around 12:01am PST) to pull in all your gists (including private ones), and will 
-  email you all new comments.
+  (around 12:01am PST) to pull in all your gists (including private ones) edited or updated in the past 24 hours, and will email you links to any out of that set that received additional. Note this means that the first time a gist is sent to you, it will assume all comments are new; it is certainly possible that none were, and instead that you simply updated the gist itself.
   </p>
   <p>
   Note that this means the first email you receive will include all comments
   on all gists to date, and subsequent emails will only be the delta
   </p>
+  <p>
+  If things don't work as expected, please contact me via twitter, <%= link_to '@dmragone', 'http://www.twitter.com/dmragone' %>
 
 <% else %>
   <%= render @gists %>
